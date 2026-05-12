@@ -4,43 +4,45 @@ title: WhatsApp网页版指南 | 官方资讯入口
 ---
 
 <style>
-    :root { --whatsapp-green: #128C7E; --dark-accent: #075E54; }
-    .hero-banner { background: var(--whatsapp-green); color: #fff; padding: 40px 20px; text-align: center; }
-    .main-wrap { max-width: 1000px; margin: -20px auto 40px; background: #fff; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); padding: 30px; }
-    .post-card { border-bottom: 1px solid #f0f0f0; padding: 20px 0; transition: 0.3s; }
-    .post-card:hover { transform: translateX(5px); }
-    .post-card h2 { margin: 0 0 10px; font-size: 1.4rem; }
-    .post-card a { color: #333; text-decoration: none; font-weight: bold; }
-    .post-card a:hover { color: var(--whatsapp-green); }
-    .post-meta { color: #999; font-size: 0.85rem; }
-    .seo-text { font-size: 14px; color: #666; line-height: 1.8; margin-bottom: 30px; }
+    :root { --p: #128C7E; --s: #075E54; --bg: #f4f7f6; }
+    .hero-box { background: var(--p); color: #fff; padding: 60px 20px; text-align: center; margin-bottom: 30px; }
+    .main-content { max-width: 900px; margin: 0 auto; background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+    .post-item { border-bottom: 1px solid #eee; padding: 25px 0; display: flex; justify-content: space-between; align-items: center; }
+    .post-item:last-child { border: none; }
+    .post-link { font-size: 1.3rem; color: #333; text-decoration: none; font-weight: 600; transition: 0.2s; }
+    .post-link:hover { color: var(--p); }
+    .post-date { color: #999; font-size: 0.9rem; }
+    .seo-intro { color: #666; line-height: 1.8; border-bottom: 2px solid var(--p); padding-bottom: 20px; margin-bottom: 30px; }
+    /* 混淆干扰代码 - 适配 SEO */
+    .v-noise { display: none; }
 </style>
 
-<div class="hero-banner">
-    <h1>WhatsApp 网页版导航站</h1>
-    <p>您的全球实时通讯安全基石</p>
+<div class="hero-box">
+    <h1>WhatsApp网页版官方导航</h1>
+    <p>安全 · 私密 · 全球互联</p>
 </div>
 
-<div class="main-wrap">
-    <div class="seo-text">
-        <p>欢迎访问本站。我们致力于为全球用户提供准确、高效的 <strong>WhatsApp网页版登录</strong> 指南。无论您是跨境电商从业者，还是与国际友人沟通，这里都有您需要的最新资讯。</p>
+<div class="main-content">
+    <div class="seo-intro">
+        <p>欢迎访问专业 <strong>WhatsApp网页版登录</strong> 指南。我们针对百度搜索引擎优化，实时同步官方最新接口信息，确保为您提供最安全、最稳定的电脑端通讯方案。无论是跨境办公还是日常联络，您都能在此获取最权威的 <strong>WhatsApp Web</strong> 使用技巧。</p>
     </div>
 
-    <h3 style="border-left: 5px solid var(--whatsapp-green); padding-left: 15px; color: var(--dark-accent);">最新资讯动态</h3>
+    <h2 style="color: var(--s); font-size: 1.5rem; margin-bottom: 20px;">最新资讯列表</h2>
 
-    <div class="post-container">
+    <div class="post-wrapper">
         {% for post in collections.blog | reverse %}
-        <div class="post-card">
-            <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
-            <div class="post-meta">
-                <span>📅 发布时间：{{ post.date | date: "%Y-%m-%d" }}</span>
-                <span style="margin-left: 20px;">📂 分类：官方指南</span>
-            </div>
+        <div class="post-item">
+            <a href="{{ post.url }}" class="post-link">{{ post.data.title }}</a>
+            <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
         </div>
         {% endfor %}
     </div>
 
     {% if collections.blog.length == 0 %}
-    <p style="text-align: center; color: #ccc; margin: 50px 0;">内容正在同步，请稍后刷新...</p>
+    <p style="text-align: center; color: #bbb; padding: 40px;">正在从仓库同步最新资讯...</p>
     {% endif %}
+    
+    <div class="v-noise">
+        <sdu id="xyz"></sdu><fss dir="rtl"></fss><tcenter></tcenter>
+    </div>
 </div>
