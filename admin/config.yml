@@ -1,36 +1,20 @@
-# 后台连接设置
 backend:
   name: github
-  # 1. 替换为你的 GitHub 用户名/仓库名
-  repo: zhutou369/ws123 
+  repo: zhutou369/ws123
   branch: main
-  # 2. 替换为你刚才部署的 Cloudflare Worker 完整网址
-  base_url: https://ws-auth-gate.zhutou757.workers.dev 
+  base_url: https://ws-auth-gate.zhutou757.workers.dev/
   auth_endpoint: auth
 
-# 媒体文件（图片）存放设置
 media_folder: "assets/images"
 public_folder: "/assets/images"
 
-# 内容集合设置
 collections:
   - name: "blog"
     label: "文章发布"
-    label_singular: "文章"
-    folder: "posts" # 文章存放在 posts 文件夹
-    create: true # 允许在后台新建文章
-    edit: true # 允许编辑
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # 生成的文件名格式
-    format: "yaml-frontmatter" # 11ty 识别的头部格式
-    
-    # 后台编辑器的字段
+    folder: "posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "文章标题", name: "title", widget: "string", hint: "这将显示在首页列表和页面顶部"}
-      - {label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false}
-      - {label: "正文内容", name: "body", widget: "markdown", hint: "支持图片上传和 Markdown 语法"}
-      
-      # 如果你想在首页实现之前的互链效果，可以额外增加一个隐藏字段
-      - {label: "布局", name: "layout", widget: "hidden", default: "layout.njk"}
-
-# 界面展示语言
-locale: 'zh_Hans'
+      - {label: "文章标题", name: "title", widget: "string"}
+      - {label: "发布日期", name: "date", widget: "datetime"}
+      - {label: "正文内容", name: "body", widget: "markdown"}
