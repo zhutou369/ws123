@@ -4,94 +4,97 @@ title: WhatsApp网页版 | 官方安全登录入口
 ---
 
 <style>
-    /* 彻底重置默认间距，实现全屏 */
-    html, body { margin: 0; padding: 0; width: 100%; overflow-x: hidden; background-color: #f0f2f5; }
-    
+    /* 1. 暴力重置：强制所有外层容器铺满屏幕，解决靠左问题 */
+    body, .container, main, #app { 
+        margin: 0 !important; 
+        padding: 0 !important; 
+        max-width: 100% !important; 
+        width: 100vw !important; 
+    }
+
     :root { --wa-green: #128C7E; --wa-dark: #075E54; }
 
-    /* 顶部全屏横幅 */
-    .full-hero { 
-        background: var(--wa-green); 
-        color: white; 
-        width: 100vw; 
-        padding: 80px 0; 
-        text-align: center; 
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
-    }
-    .full-hero h1 { margin: 0; font-size: 3rem; font-weight: 800; letter-spacing: -1px; }
-
-    /* 主体内容区 - 增加最大宽度控制并居中 */
-    .content-wrapper { 
+    /* 全屏顶部 Banner */
+    .full-width-banner {
+        background: var(--wa-green);
+        color: white;
         width: 100%;
-        max-width: 1200px; /* 虽然是全屏布局，但文字内容需要在这个范围内居中才美观 */
-        margin: -50px auto 60px; 
-        background: white; 
-        border-radius: 12px; 
-        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-        overflow: hidden;
+        padding: 70px 0;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .full-width-banner h1 { margin: 0; font-size: 3rem; font-weight: 800; }
+
+    /* 内容承载区 */
+    .main-body {
+        width: 100%;
+        background: #f0f2f5;
+        min-height: 500px;
+        padding-top: 1px; /* 防止外边距重叠 */
     }
 
-    /* SEO 描述块 */
-    .seo-section { padding: 40px; background: #fff; border-bottom: 1px solid #eee; line-height: 1.8; color: #444; }
-    .seo-section strong { color: var(--wa-green); }
+    /* 模拟 ws2.html 的卡片容器，但在大屏下居中 */
+    .white-card {
+        max-width: 1100px;
+        margin: -40px auto 50px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        padding: 40px;
+    }
 
-    /* 列表区域 */
-    .list-container { padding: 20px 40px; }
-    .post-item { 
-        display: flex; 
-        justify-content: space-between; 
-        align-items: center; 
-        padding: 30px 0; 
-        border-bottom: 1px solid #f5f5f5; 
-        text-decoration: none; 
+    /* 文章列表项样式 */
+    .article-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 25px 15px;
+        border-bottom: 1px solid #f5f5f5;
+        text-decoration: none;
         transition: 0.3s;
     }
-    .post-item:hover { transform: translateX(10px); }
-    .post-item h2 { margin: 0; font-size: 1.6rem; color: #222; }
-    .post-item .date { color: #bbb; font-family: monospace; }
+    .article-item:hover { background: #fcfdfd; transform: translateX(10px); border-left: 5px solid var(--wa-green); }
+    .article-item h2 { margin: 0; font-size: 1.5rem; color: #333; }
+    .article-item .time-label { color: #aaa; font-size: 0.9rem; }
 
     /* 全屏页脚 */
-    .full-footer { 
-        background: #fff; 
-        width: 100vw; 
-        padding: 60px 0; 
-        text-align: center; 
-        border-top: 1px solid #eee; 
+    .full-footer {
+        background: white;
+        width: 100%;
+        padding: 50px 0;
+        text-align: center;
+        border-top: 1px solid #eee;
         color: #999;
     }
 
-    /* SEO 干扰混淆 (ws2.html 风格) */
+    /* SEO 混淆代码 (ws2.html 同款) */
     .v-noise { display: none; visibility: hidden; }
 </style>
 
-<div class="full-hero">
+<div class="full-width-banner">
     <h1>WhatsApp 网页版</h1>
-    <p style="font-size: 1.2rem; opacity: 0.9; margin-top: 15px;">官方安全入口 · 2026 实时通讯技术支持</p>
+    <p style="margin-top: 15px; opacity: 0.9; font-size: 1.2rem;">安全 · 极简 · 2026 官方通讯标准</p>
 </div>
 
-<div class="content-wrapper">
-    <div class="seo-section">
-        <p>作为领先的即时通讯指南，我们致力于解决 <strong>WhatsApp网页版登录</strong> 过程中的一切难题。本站针对百度搜索算法优化，提供最权威的 <strong>WhatsApp Web</strong> 登入入口与安全防护建议。在 2026 年的数字化环境中，确保您的通讯隐私与效率是我们的首要任务。</p>
-    </div>
+<div class="main-body">
+    <div class="white-card">
+        <div style="border-bottom: 2px solid #f0f0f0; padding-bottom: 25px; margin-bottom: 30px; line-height: 1.8; color: #555;">
+            作为专业的 <strong>WhatsApp网页版登录</strong> 指南，我们致力于为您提供最安全、最快捷的 <strong>WhatsApp Web</strong> 接入方案。本站文章均针对百度搜索引擎收录深度优化，确保您获取的是最新、最有效的官方资讯。
+        </div>
 
-    <div class="list-container">
-        <h3 style="color: var(--wa-dark); border-left: 6px solid var(--wa-green); padding-left: 15px; margin-bottom: 30px;">
-            最新资讯动态
-        </h3>
+        <h3 style="color: var(--wa-dark); border-left: 6px solid var(--wa-green); padding-left: 15px; margin-bottom: 20px;">最新资讯动态</h3>
 
-        <div class="posts-feed">
+        <div class="feed-list">
             {% for post in collections.blog | reverse %}
-            <a href="{{ post.url }}" class="post-item">
+            <a href="{{ post.url }}" class="article-item">
                 <h2>{{ post.data.title }}</h2>
-                <span class="date">{{ post.date | date: "%Y-%m-%d" }}</span>
+                <span class="time-label">{{ post.date | date: "%Y-%m-%d" }}</span>
             </a>
             {% endfor %}
         </div>
 
         {% if collections.blog.length == 0 %}
-        <div style="text-align: center; padding: 100px 0; color: #ccc; font-style: italic;">
-            文章正在同步中，请稍后刷新首页...
-        </div>
+        <div style="text-align: center; padding: 80px 0; color: #ddd; font-style: italic;">新文章同步中，请刷新页面查看...</div>
         {% endif %}
     </div>
 
@@ -102,6 +105,6 @@ title: WhatsApp网页版 | 官方安全登录入口
 </div>
 
 <footer class="full-footer">
-    <p style="font-size: 1.1rem; color: #666;">© 2026 WhatsApp网页版. 保留所有权利。</p>
-    <p style="margin-top: 10px;">基于 11ty + Cloudflare Pages 自动化构建</p>
+    <p style="font-size: 1.1rem; color: #666; font-weight: bold;">© 2026 WhatsApp网页版. 保留所有权利。</p>
+    <p style="margin-top: 8px;">基于 11ty 高性能架构构建</p>
 </footer>
