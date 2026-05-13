@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: zhutou369/ws123 
+  repo: zhutou369/ws123
   branch: main
   base_url: https://ws-auth-gate.zhutou757.workers.dev
   auth_endpoint: auth
@@ -13,7 +13,7 @@ collections:
     label: "文章发布"
     folder: "posts"
     create: true
-    # 核心修正：加入 {{hour}}{{minute}}{{second}}，强制让每一篇的文件名都不一样
+    # 这一行是命根子：必须包含时分秒，否则同名标题的文章会互相覆盖
     slug: "{{year}}-{{month}}-{{day}}-{{hour}}{{minute}}{{second}}-{{slug}}"
     fields:
       - {label: "文章标题", name: "title", widget: "string"}
