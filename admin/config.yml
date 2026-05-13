@@ -1,8 +1,9 @@
 backend:
   name: github
-  repo: zhutou369/ws123 # 请确保这是你的仓库名
+  repo: zhutou369/ws123 # 确认仓库名无误
   branch: main
   base_url: https://ws-auth-gate.zhutou757.workers.dev # 你的Worker地址
+  auth_endpoint: auth
 
 media_folder: "assets/img"
 public_folder: "/assets/img"
@@ -12,8 +13,13 @@ collections:
     label: "文章发布"
     folder: "posts"
     create: true
-    # 修改下面这一行，加入小时、分钟、秒，确保文件名唯一
+    # 核心修正：加入时分秒 {{hour}}{{minute}}{{second}}，确保每次发布的文件名都唯一，不会覆盖旧文章
     slug: "{{year}}-{{month}}-{{day}}-{{hour}}{{minute}}{{second}}-{{slug}}"
     fields:
       - {label: "文章标题", name: "title", widget: "string"}
-      # ... 其他字段保持不变
+      - {label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss"}
+      - {label: "正文内容", name: "body", widget: "markdown"}
+      # 强制添加 blog 标签，确保 11ty 能够识别并显示在首页
+      - {label: "标签", name: "tags", widget: "hidden", default: "blog"}
+      # 强制使用 layout.njk 布局
+      - {label: "布局", name: "layout", widget: "hidden", default: "layout.njk"}
