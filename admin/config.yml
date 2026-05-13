@@ -12,10 +12,8 @@ collections:
     label: "文章发布"
     folder: "posts"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    # 修改下面这一行，加入小时、分钟、秒，确保文件名唯一
+    slug: "{{year}}-{{month}}-{{day}}-{{hour}}{{minute}}{{second}}-{{slug}}"
     fields:
       - {label: "文章标题", name: "title", widget: "string"}
-      - {label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
-      - {label: "正文内容", name: "body", widget: "markdown"}
-      - {label: "标签", name: "tags", widget: "hidden", default: "blog"}
-      - {label: "布局", name: "layout", widget: "hidden", default: "layout.njk"}
+      # ... 其他字段保持不变
