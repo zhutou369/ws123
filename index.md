@@ -57,15 +57,16 @@
             <div class="card">
                 <h3>最新更新</h3>
                 <ul style="padding-left:20px; color:#64748b;">
-                    {% for post in collections.blog | reverse %}
-                    <li style="margin-bottom:10px;"><a href="{{ post.url }}" style="color:var(--dark)">{{ post.data.title }}</a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-
-            </div>
-        </aside>
-    </div>
+            {%- for post in collections.blog | reverse -%}
+            <a href="{{ post.url }}" class="article-item">
+                <div class="article-content-wrapper">
+                    <h2 class="article-title">{{ post.data.title }}</h2>
+                </div>
+            </a>
+            {%- endfor -%}
+        </div>
+    </aside>
+</div>
     <footer class="footer">
         <p>友情链接：<a href="http://qhqrl.com" class="footer-link-item">whatsapp网页版登录</a> <a href="http://qhsdk.com" class="footer-link-item">WhatsApp web</a> <a href="http://qvfdc.com" class="footer-link-item">whatsapp网页版</a> <a href="http://rcqry.com" class="footer-link-item">whatsapp网页版登入</a> <a href="http://rdqjm.com" class="footer-link-item">whatsapp官方</a>
         <p>© 2026 RDQJM.COM 版权所有</p>
