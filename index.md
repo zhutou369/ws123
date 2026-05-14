@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-{% searchEngineOnly %}
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WhatsApp网页版登录官方入口 - whatapp web</title>
@@ -73,7 +73,11 @@
 </aside>
 </div>
     <footer class="footer">
-        <p>友情链接：<a href="http://qhqrl.com" class="footer-link-item">whatsapp网页版登录</a> <a href="http://qhsdk.com" class="footer-link-item">WhatsApp web</a> <a href="http://qvfdc.com" class="footer-link-item">whatsapp网页版</a> <a href="http://rcqry.com" class="footer-link-item">whatsapp网页版登入</a> <a href="http://rdqjm.com" class="footer-link-item">whatsapp官方</a>
+        <p>友情链接：                <a href="https://qhqrl.com">whatsapp網頁版下载</a>
+                <a href="https://ctysd.cn">whats网页版登入</a>
+                <a href="https://qvfdc.com">WhatsApp 網頁版</a>
+                <a href="https://rcqry.com">whatapp web</a>
+                <a href="https://rdqjm.com">whatsapp在线登陆</a>
         <p>© 2026 RDQJM.COM 版权所有</p>
     </footer>
 </body>
