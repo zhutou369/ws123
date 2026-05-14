@@ -3,95 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} - WhatsApp网页版</title>
+    <title>{{ title }} - whats app web</title>
     <style>
-        /* 页面基础样式 */
-        body { font-family: -apple-system, system-ui, sans-serif; line-height: 1.8; color: #333; margin: 0; background: #f0f2f5; }
-        .post-container { max-width: 900px; margin: 40px auto; background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
-        h1 { color: #075E54; border-bottom: 2px solid #eee; padding-bottom: 20px; }
-        .post-content { font-size: 1.1rem; margin-bottom: 40px; }
-
-        /* 互链组件样式 */
-        .post-pagination {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            padding-top: 30px;
-            border-top: 1px solid #eee;
-            margin-top: 50px;
-        }
-        .pagination-item {
-            flex: 1;
-            padding: 15px;
-            border-radius: 8px;
-            background: #f8f9fa;
-            text-decoration: none;
-            color: #128C7E;
-            transition: all 0.3s;
-            border: 1px solid transparent;
-        }
-        .pagination-item:hover {
-            background: #fff;
-            border-color: #128C7E;
-            box-shadow: 0 4px 12px rgba(18,140,126,0.1);
-        }
-        .pagination-label {
-            display: block;
-            font-size: 0.8rem;
-            color: #999;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-        }
-        .pagination-title {
-            display: block;
-            font-weight: bold;
-            font-size: 1rem;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .prev { text-align: left; }
-        .next { text-align: right; }
-        
-        @media (max-width: 600px) {
-            .post-pagination { flex-direction: column; }
-        }
+        body { font-family: "Source Serif Pro", serif; background: #fafafa; color: #2d3436; margin: 0; line-height: 1.8; }
+        .post-wrapper { max-width: 800px; margin: 60px auto; background: white; padding: 60px; border: 1px solid #eee; }
+        h1 { font-size: 2.5rem; color: #075E54; margin-bottom: 10px; }
+        .meta { color: #b2bec3; font-style: italic; margin-bottom: 40px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        .content h2 { color: #128C7E; margin-top: 40px; font-family: sans-serif; }
+        .nav-links { display: flex; justify-content: space-between; margin-top: 80px; padding-top: 20px; border-top: 1px solid #eee; font-family: sans-serif; }
+        .nav-links a { color: #128C7E; text-decoration: none; font-weight: 600; }
+        footer { text-align: center; padding: 40px; color: #636e72; font-size: 0.9rem; }
     </style>
 </head>
 <body>
-
-    <article class="post-container">
-        <h1>{{ title }}</h1>
-        
-        <div class="post-content">
+    <article class="post-wrapper">
+        <header>
+            <h1>{{ title }}</h1>
+            <div class="meta">发布于: {{ date | dateFilter }} | 分类: 技术指引</div>
+        </header>
+        <div class="content">
             {{ content | safe }}
         </div>
-
-        <nav class="post-pagination">
-            {%- set previousPost = collections.blog | getPreviousCollectionItem(page) %}
-            {%- set nextPost = collections.blog | getNextCollectionItem(page) %}
-
-            {%- if previousPost %}
-            <a href="{{ previousPost.url }}" class="pagination-item prev">
-                <span class="pagination-label">← 上一篇</span>
-                <span class="pagination-title">{{ previousPost.data.title }}</span>
-            </a>
-            {% else %}
-            <div class="pagination-item" style="visibility: hidden;"></div>
-            {%- endif %}
-
-            {%- if nextPost %}
-            <a href="{{ nextPost.url }}" class="pagination-item next">
-                <span class="pagination-label">下一篇 →</span>
-                <span class="pagination-title">{{ nextPost.data.title }}</span>
-            </a>
-            {%- endif %}
+        <nav class="nav-links">
+            {% if prevPost %}<a href="{{ prevPost.url }}">← 上一篇: {{ prevPost.data.title }}</a>{% else %}<span></span>{% endif %}
+            {% if nextPost %}<a href="{{ nextPost.url }}">下一篇: {{ nextPost.data.title }} →</a>{% endif %}
         </nav>
-        
-        <div style="text-align: center; margin-top: 40px;">
-            <a href="/" style="color: #666; text-decoration: none;">返回首页</a>
-        </div>
     </article>
-
+    <footer>
+        <p><a href="/" style="color:#636e72">返回首页</a> | 隐私政策 | 联系我们</p>
+        <p>RDQJM.COM - whats app web</p>
+    </footer>
 </body>
 </html>
+    
