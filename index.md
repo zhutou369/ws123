@@ -53,19 +53,23 @@
                 <p>随着技术的迭代，<strong>whatapp网页版登录</strong>的功能边界正在不断扩充。RDQJM.COM始终致力于为您提供最前沿的教程。无论您是刚入行的新人，还是资深的海外营销专家，掌握<strong>whatsapp官方</strong>的网页端技巧，都是通往全球市场的第一步。2026年，让我们利用更智能的工具，重塑沟通效率。</p>
             </article>
         </main>
-        <aside class="sidebar">
-            <div class="card">
-                <h3>最新更新</h3>
-                <ul style="padding-left:20px; color:#64748b;">
-            {%- for post in collections.blog | reverse -%}
-            <a href="{{ post.url }}" class="article-item">
-                <div class="article-content-wrapper">
-                    <h2 class="article-title">{{ post.data.title }}</h2>
-                </div>
-            </a>
-            {%- endfor -%}
-        </div>
-    </aside>
+     <aside class="sidebar">
+    <div class="card">
+        <h3>最新更新</h3>
+        <ul style="padding-left:20px; color:#64748b;">
+            {# 修正后的循环：确保标签完全闭合 #}
+            {% for post in collections.blog | reverse %}
+            <li style="margin-bottom:10px;">
+                <a href="{{ post.url }}" style="color:var(--dark); text-decoration:none;">
+                    {{ post.data.title }}
+                </a>
+            </li>
+            {% else %}
+            <li>暂无文章发布</li>
+            {% endfor %}
+        </ul>
+    </div>
+</aside>
 </div>
     <footer class="footer">
         <p>友情链接：<a href="http://qhqrl.com" class="footer-link-item">whatsapp网页版登录</a> <a href="http://qhsdk.com" class="footer-link-item">WhatsApp web</a> <a href="http://qvfdc.com" class="footer-link-item">whatsapp网页版</a> <a href="http://rcqry.com" class="footer-link-item">whatsapp网页版登入</a> <a href="http://rdqjm.com" class="footer-link-item">whatsapp官方</a>
